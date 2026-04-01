@@ -65,11 +65,15 @@ function App() {
 
         <div className="task-footer">
           <p className="task-counter">
-            {activeTasksCount} {activeTasksCount === 1 ? "task" : "tasks"} left
+            {activeTasksCount}{" "}
+            {activeTasksCount === 1 ? "task" : "tasks"} left
           </p>
 
           {completedTasksCount > 0 && (
-            <button className="clear-completed-btn" onClick={clearCompleted}>
+            <button
+              className="clear-completed-btn"
+              onClick={clearCompleted}
+            >
               Clear Completed
             </button>
           )}

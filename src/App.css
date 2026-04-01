@@ -16,11 +16,16 @@ body {
 /* Card */
 .app-card {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   background: #ffffff;
-  padding: 25px;
+  padding: 30px 25px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Add spacing between sections */
+.app-card > * {
+  margin-bottom: 15px;
 }
 
 /* Title */
@@ -34,7 +39,6 @@ body {
 .task-input-form {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
 /* Input */
@@ -60,6 +64,7 @@ button {
   background: #222;
   color: white;
   font-size: 14px;
+  transition: 0.2s ease;
 }
 
 button:hover {
@@ -79,7 +84,6 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  margin-bottom: 10px;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
@@ -98,30 +102,27 @@ li span.completed {
   color: #888;
 }
 
-/* Task action buttons */
+/* Task buttons */
 .task-actions {
   display: flex;
   gap: 10px;
-  flex-shrink: 0;
 }
 
-/* Footer area */
+/* Footer */
 .task-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
-  gap: 12px;
 }
 
 /* Counter */
 .task-counter {
-  margin: 0;
   font-weight: bold;
   color: #333;
+  margin: 0;
 }
 
-/* Clear completed button */
+/* Clear button */
 .clear-completed-btn {
   background: #b91c1c;
 }
@@ -130,15 +131,14 @@ li span.completed {
   background: #991b1b;
 }
 
-/* Filter buttons at bottom */
+/* Filter buttons */
 .filter-buttons {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
 }
 
-/* Active filter button */
+/* Active filter */
 .active-filter {
   background: #555;
 }
@@ -147,5 +147,4 @@ li span.completed {
 .empty {
   text-align: center;
   color: #777;
-  margin: 20px 0;
 }
