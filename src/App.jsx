@@ -9,6 +9,8 @@ function App() {
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
 
+  const [filter, setFilter] = useState("all");
+
   const addTask = (taskText) => {
     const newTask = {
       id: Date.now(),
@@ -31,25 +33,39 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "active") return !task.completed;
+    if (filter === "completed") return task.completed;
+    return true;
+  });
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
- return (
-  <div className="app-wrapper">
-    <div className="app-card">
-      <h1>Task Manager</h1>
+  return (
+    <div className="App">
+      <h1>Task Tracker</h1>
 
       <TaskInput addTask={addTask} />
 
+      <div style={{ marginBottom: "20px" }}>
+        <button onClick={() => setFilter("all")}>All</button>
+        <button onClick={() => setFilter("active")} style={{ marginLeft: "10px" }}>
+          Active
+        </button>
+        <button onClick={() => setFilter("completed")} style={{ marginLeft: "10px" }}>
+          Completed
+        </button>
+      </div>
+
       <TaskList
-  tasks={tasks}
-  toggleComplete={toggleComplete}
-  deleteTask={deleteTask}
-/>
+        tasks={filteredTasks}
+        toggleComplete={toggleComplete}
+        deleteTask={deleteTask}
+      />
     </div>
-  </div>
-);
+  );
 }
 
 export default App;
