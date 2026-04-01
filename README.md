@@ -1,16 +1,166 @@
-# React + Vite
+# 📝 Task Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean and responsive **Task Tracker (To-Do App)** built with React.
+This application allows users to manage tasks efficiently with features like filtering, persistence, and edge-case handling.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+* ➕ Add new tasks
+* ✅ Mark tasks as complete / undo
+* 🗑️ Delete tasks
+* 🔍 Filter tasks:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  * All
+  * Active
+  * Completed
+* 📊 Active tasks counter
+* 🧹 Clear completed tasks
+* 💾 Persistent storage using `localStorage`
+* 🎯 Responsive and clean UI
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Tech Stack
+
+* **Frontend:** React (Functional Components + Hooks)
+* **Styling:** CSS (custom, no frameworks)
+* **State Management:** React `useState`
+* **Persistence:** Browser `localStorage`
+
+---
+
+## 📂 Project Structure
+
+```bash
+taskflow/
+├── src/
+│   ├── components/
+│   │   ├── TaskInput.jsx
+│   │   ├── TaskList.jsx
+│   │   └── TaskItem.jsx
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+│
+├── public/
+├── package.json
+└── README.md
+```
+
+---
+
+## 🧠 How It Works
+
+* Tasks are stored as objects:
+
+```js
+{
+  id: number,
+  text: string,
+  completed: boolean
+}
+```
+
+* Filtering is implemented using:
+
+```js
+tasks.filter(task => ...)
+```
+
+* State is persisted using:
+
+```js
+localStorage.setItem("tasks", JSON.stringify(tasks));
+```
+
+---
+
+## 🛠️ Installation & Setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/tshiyonzo25/taskflow.git
+```
+
+2.Navigate into the project:
+
+```bash
+cd taskflow
+```
+
+3.Install dependencies:
+
+```bash
+npm install
+```
+
+4.Run the development server:
+
+```bash
+npm run dev
+```
+
+5.Open in browser:
+
+<http://localhost:5173>
+
+## ⚠️ Edge Case Handling
+
+This project explicitly handles important edge cases:
+
+* 🚫 Prevents empty tasks from being added
+* 🔁 Prevents duplicate tasks (case-insensitive)
+* 📭 Displays a friendly empty state:
+
+  > "No tasks yet"
+* 💾 Ensures tasks persist after page refresh
+
+These improvements enhance reliability and user experience.
+
+---
+
+## 🎯 Key Improvements & Enhancements
+
+* Dynamic filtering system (All / Active / Completed)
+* Visual feedback for active filter buttons
+* Clean two-column layout for tasks and actions
+* Conditional rendering for "Clear Completed" button
+* Improved UI structure using CSS classes (no inline styles)
+
+---
+
+---
+
+## 📌 Future Improvements
+
+* ✏️ Edit task functionality
+* 📱 Mobile responsiveness improvements
+* 🌙 Dark mode
+* 🔔 Notifications / reminders
+* 🔄 Drag-and-drop task reordering
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+## 👤 Author
+
+## Marionne Tshiyonzo
+
+* GitHub: <https://github.com/tshiyonzo25>
+
+---
