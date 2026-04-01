@@ -4,7 +4,8 @@ body {
   background: #f4f6f8;
 }
 
-.app {
+/* Container */
+.app-wrapper {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -12,96 +13,78 @@ body {
   padding: 40px 20px;
 }
 
-.task-container {
+/* Card */
+.app-card {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   background: #ffffff;
-  padding: 30px;
+  padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.task-container h1 {
+/* Title */
+.app-card h1 {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   color: #222;
 }
 
-.task-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.task-input {
-  flex: 1;
-  padding: 12px;
+/* Input */
+input[type="text"] {
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 16px;
+  width: 65%;
+  font-size: 14px;
 }
 
-.task-input:focus {
+input[type="text"]:focus {
   outline: none;
   border-color: #333;
 }
 
-.add-btn,
-.delete-btn {
+/* Buttons */
+button {
+  padding: 8px 12px;
   border: none;
   border-radius: 8px;
-  padding: 10px 14px;
   cursor: pointer;
+  background: #222;
+  color: white;
   font-size: 14px;
 }
 
-.add-btn {
-  background: #222;
-  color: white;
-}
-
-.add-btn:hover {
+button:hover {
   background: #000;
 }
 
-.delete-btn {
-  background: #e74c3c;
-  color: white;
-}
-
-.delete-btn:hover {
-  background: #c0392b;
-}
-
-.task-list {
+/* Task list */
+ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.task-item {
+/* Task item */
+li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
-  padding: 12px 14px;
   border-radius: 8px;
-  margin-bottom: 10px;
 }
 
-.task-text {
-  cursor: pointer;
-  color: #222;
-}
-
-.task-text.completed {
+/* Completed task */
+li span.completed {
   text-decoration: line-through;
   color: #888;
 }
 
-.empty-state {
+/* Empty state */
+.empty {
   text-align: center;
   color: #777;
-  margin-top: 20px;
 }

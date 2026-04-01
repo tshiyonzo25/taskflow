@@ -10,8 +10,6 @@ function App() {
   });
 
   const addTask = (taskText) => {
-    if (!taskText.trim()) return;
-
     const newTask = {
       id: Date.now(),
       text: taskText,
@@ -19,10 +17,6 @@ function App() {
     };
 
     setTasks([...tasks, newTask]);
-  };
-
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   const toggleComplete = (id) => {
@@ -33,23 +27,44 @@ function App() {
     );
   };
 
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  return (
-    <div className="app">
-      <div className="task-container">
-        <h1>Task Manager</h1>
-        <TaskInput addTask={addTask} />
-        <TaskList
-          tasks={tasks}
-          toggleComplete={toggleComplete}
-          deleteTask={deleteTask}
-        />
-      </div>
+ return (
+  <div className="app-wrapper">
+    <div className="app-card">
+      <h1>Task Manager</h1>
+
+      <TaskInput addTask={addTask} />
+
+      {tasks.length === 0 ? (
+        <p className="empty">No tasks yet. Add your first task.</p>
+      ) : (
+        <ul>
+          {tasks.map((task) => (
+            <li key={task.id}>
+              <span
+                onClick={() => toggleComplete(task.id)}
+                className={task.completed ? "completed" : ""}
+              >
+                {task.text}
+              </span>
+
+              <button onClick={() => deleteTask(task.id)}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
-  );
+  </div>
+);
 }
 
 export default App;
