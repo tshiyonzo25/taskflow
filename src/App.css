@@ -105,13 +105,29 @@ li span.completed {
   flex-shrink: 0;
 }
 
+/* Footer area */
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 12px;
+}
+
 /* Counter */
 .task-counter {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  margin: 0;
   font-weight: bold;
   color: #333;
+}
+
+/* Clear completed button */
+.clear-completed-btn {
+  background: #b91c1c;
+}
+
+.clear-completed-btn:hover {
+  background: #991b1b;
 }
 
 /* Filter buttons at bottom */
@@ -119,7 +135,7 @@ li span.completed {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 /* Active filter button */

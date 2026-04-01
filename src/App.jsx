@@ -33,6 +33,10 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  const clearCompleted = () => {
+    setTasks(tasks.filter((task) => !task.completed));
+  };
+
   const filteredTasks = tasks.filter((task) => {
     if (filter === "active") return !task.completed;
     if (filter === "completed") return task.completed;
@@ -40,6 +44,7 @@ function App() {
   });
 
   const activeTasksCount = tasks.filter((task) => !task.completed).length;
+  const completedTasksCount = tasks.filter((task) => task.completed).length;
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -58,9 +63,17 @@ function App() {
           deleteTask={deleteTask}
         />
 
-        <p className="task-counter">
-          {activeTasksCount} {activeTasksCount === 1 ? "task" : "tasks"} left
-        </p>
+        <div className="task-footer">
+          <p className="task-counter">
+            {activeTasksCount} {activeTasksCount === 1 ? "task" : "tasks"} left
+          </p>
+
+          {completedTasksCount > 0 && (
+            <button className="clear-completed-btn" onClick={clearCompleted}>
+              Clear Completed
+            </button>
+          )}
+        </div>
 
         <div className="filter-buttons">
           <button
