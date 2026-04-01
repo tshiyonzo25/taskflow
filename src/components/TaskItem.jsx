@@ -1,14 +1,15 @@
 function TaskItem({ task, toggleComplete, deleteTask }) {
   return (
-    <li className="task-item">
+    <li>
       <span
         onClick={() => toggleComplete(task.id)}
-        className={task.completed ? "task-text completed" : "task-text"}
+        className={task.completed ? "completed" : ""}
+        style={{ cursor: "pointer" }}
       >
         {task.text}
       </span>
 
-      <button onClick={() => deleteTask(task.id)} className="delete-btn">
+      <button onClick={() => deleteTask(task.id)}>
         Delete
       </button>
     </li>

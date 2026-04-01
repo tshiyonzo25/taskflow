@@ -42,26 +42,11 @@ function App() {
 
       <TaskInput addTask={addTask} />
 
-      {tasks.length === 0 ? (
-        <p className="empty">No tasks yet. Add your first task.</p>
-      ) : (
-        <ul>
-          {tasks.map((task) => (
-            <li key={task.id}>
-              <span
-                onClick={() => toggleComplete(task.id)}
-                className={task.completed ? "completed" : ""}
-              >
-                {task.text}
-              </span>
-
-              <button onClick={() => deleteTask(task.id)}>
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <TaskList
+  tasks={tasks}
+  toggleComplete={toggleComplete}
+  deleteTask={deleteTask}
+/>
     </div>
   </div>
 );
