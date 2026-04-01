@@ -55,7 +55,7 @@ function App() {
       <div className="app-card">
         <h1>Task Tracker</h1>
 
-        <TaskInput addTask={addTask} />
+        <TaskInput addTask={addTask} tasks={tasks} />
 
         <TaskList
           tasks={filteredTasks}

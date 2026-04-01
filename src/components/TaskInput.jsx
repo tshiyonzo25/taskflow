@@ -1,14 +1,25 @@
 import { useState } from "react";
 
-function TaskInput({ addTask }) {
+function TaskInput({ addTask, tasks }) {
   const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!input.trim()) return;
+    const trimmedInput = input.trim();
 
-    addTask(input);
+    if (!trimmedInput) return;
+
+    const isDuplicate = tasks.some(
+      (task) => task.text.toLowerCase() === trimmedInput.toLowerCase()
+    );
+
+    if (isDuplicate) {
+      alert("Task already exists.");
+      return;
+    }
+
+    addTask(trimmedInput);
     setInput("");
   };
 
