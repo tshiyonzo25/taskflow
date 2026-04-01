@@ -84,7 +84,26 @@ function App() {
         toggleComplete={toggleComplete}
         deleteTask={deleteTask}
       />
-    </div>
+      <div style={{ marginTop: "20px" }}>
+  <button style={getButtonStyle("all")} onClick={() => setFilter("all")}>
+    All
+  </button>
+
+  <button
+    style={getButtonStyle("active")}
+    onClick={() => setFilter("active")}
+  >
+    Active
+  </button>
+
+  <button
+    style={getButtonStyle("completed")}
+    onClick={() => setFilter("completed")}
+  >
+    Completed
+  </button>
+</div>
+    </div>  
   );
 }
 
