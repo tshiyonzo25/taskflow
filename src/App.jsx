@@ -43,6 +43,16 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  const getButtonStyle = (buttonFilter) => ({
+    marginRight: "10px",
+    padding: "8px 12px",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    backgroundColor: filter === buttonFilter ? "#333" : "#ddd",
+    color: filter === buttonFilter ? "#fff" : "#000",
+  });
+
   return (
     <div className="App">
       <h1>Task Tracker</h1>
@@ -50,11 +60,21 @@ function App() {
       <TaskInput addTask={addTask} />
 
       <div style={{ marginBottom: "20px" }}>
-        <button onClick={() => setFilter("all")}>All</button>
-        <button onClick={() => setFilter("active")} style={{ marginLeft: "10px" }}>
+        <button style={getButtonStyle("all")} onClick={() => setFilter("all")}>
+          All
+        </button>
+
+        <button
+          style={getButtonStyle("active")}
+          onClick={() => setFilter("active")}
+        >
           Active
         </button>
-        <button onClick={() => setFilter("completed")} style={{ marginLeft: "10px" }}>
+
+        <button
+          style={getButtonStyle("completed")}
+          onClick={() => setFilter("completed")}
+        >
           Completed
         </button>
       </div>
