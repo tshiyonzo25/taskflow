@@ -30,12 +30,19 @@ body {
   color: #222;
 }
 
+/* Input form */
+.task-input-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
 /* Input */
 input[type="text"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  width: 65%;
+  flex: 1;
   font-size: 14px;
 }
 
@@ -63,6 +70,7 @@ button:hover {
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 /* Task item */
@@ -70,11 +78,18 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 10px;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
+  gap: 12px;
+}
+
+/* Task text */
+li span {
+  flex: 1;
+  word-break: break-word;
 }
 
 /* Completed task */
@@ -83,8 +98,38 @@ li span.completed {
   color: #888;
 }
 
+/* Task action buttons */
+.task-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Counter */
+.task-counter {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Filter buttons at bottom */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Active filter button */
+.active-filter {
+  background: #555;
+}
+
 /* Empty state */
 .empty {
   text-align: center;
   color: #777;
+  margin: 20px 0;
 }

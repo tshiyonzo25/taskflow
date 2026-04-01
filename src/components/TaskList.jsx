@@ -2,11 +2,11 @@ import TaskItem from "./TaskItem";
 
 function TaskList({ tasks, toggleComplete, deleteTask }) {
   if (tasks.length === 0) {
-    return <p>No tasks found.</p>;
+    return <p className="empty">No tasks found.</p>;
   }
 
   return (
-    <div>
+    <ul>
       {tasks.map((task) => (
         <TaskItem
           key={task.id}
@@ -15,7 +15,7 @@ function TaskList({ tasks, toggleComplete, deleteTask }) {
           deleteTask={deleteTask}
         />
       ))}
-    </div>
+    </ul>
   );
 }
 

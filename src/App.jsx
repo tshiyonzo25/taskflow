@@ -45,50 +45,45 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  const getButtonStyle = (buttonFilter) => ({
-    marginRight: "10px",
-    padding: "8px 12px",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    backgroundColor: filter === buttonFilter ? "#333" : "#ddd",
-    color: filter === buttonFilter ? "#fff" : "#000",
-  });
-
   return (
-    <div className="App">
-      <h1>Task Tracker</h1>
+    <div className="app-wrapper">
+      <div className="app-card">
+        <h1>Task Tracker</h1>
 
-      <TaskInput addTask={addTask} />
+        <TaskInput addTask={addTask} />
 
-      <TaskList
-        tasks={filteredTasks}
-        toggleComplete={toggleComplete}
-        deleteTask={deleteTask}
-      />
+        <TaskList
+          tasks={filteredTasks}
+          toggleComplete={toggleComplete}
+          deleteTask={deleteTask}
+        />
 
-      <p style={{ marginTop: "20px", fontWeight: "bold" }}>
-        {activeTasksCount} {activeTasksCount === 1 ? "task" : "tasks"} left
-      </p>
+        <p className="task-counter">
+          {activeTasksCount} {activeTasksCount === 1 ? "task" : "tasks"} left
+        </p>
 
-      <div style={{ marginTop: "20px" }}>
-        <button style={getButtonStyle("all")} onClick={() => setFilter("all")}>
-          All
-        </button>
+        <div className="filter-buttons">
+          <button
+            className={filter === "all" ? "active-filter" : ""}
+            onClick={() => setFilter("all")}
+          >
+            All
+          </button>
 
-        <button
-          style={getButtonStyle("active")}
-          onClick={() => setFilter("active")}
-        >
-          Active
-        </button>
+          <button
+            className={filter === "active" ? "active-filter" : ""}
+            onClick={() => setFilter("active")}
+          >
+            Active
+          </button>
 
-        <button
-          style={getButtonStyle("completed")}
-          onClick={() => setFilter("completed")}
-        >
-          Completed
-        </button>
+          <button
+            className={filter === "completed" ? "active-filter" : ""}
+            onClick={() => setFilter("completed")}
+          >
+            Completed
+          </button>
+        </div>
       </div>
     </div>
   );
