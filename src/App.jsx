@@ -39,6 +39,8 @@ function App() {
     return true;
   });
 
+  const activeTasksCount = tasks.filter((task) => !task.completed).length;
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -59,7 +61,17 @@ function App() {
 
       <TaskInput addTask={addTask} />
 
-      <div style={{ marginBottom: "20px" }}>
+      <TaskList
+        tasks={filteredTasks}
+        toggleComplete={toggleComplete}
+        deleteTask={deleteTask}
+      />
+
+      <p style={{ marginTop: "20px", fontWeight: "bold" }}>
+        {activeTasksCount} {activeTasksCount === 1 ? "task" : "tasks"} left
+      </p>
+
+      <div style={{ marginTop: "20px" }}>
         <button style={getButtonStyle("all")} onClick={() => setFilter("all")}>
           All
         </button>
@@ -78,32 +90,7 @@ function App() {
           Completed
         </button>
       </div>
-
-      <TaskList
-        tasks={filteredTasks}
-        toggleComplete={toggleComplete}
-        deleteTask={deleteTask}
-      />
-      <div style={{ marginTop: "20px" }}>
-  <button style={getButtonStyle("all")} onClick={() => setFilter("all")}>
-    All
-  </button>
-
-  <button
-    style={getButtonStyle("active")}
-    onClick={() => setFilter("active")}
-  >
-    Active
-  </button>
-
-  <button
-    style={getButtonStyle("completed")}
-    onClick={() => setFilter("completed")}
-  >
-    Completed
-  </button>
-</div>
-    </div>  
+    </div>
   );
 }
 
