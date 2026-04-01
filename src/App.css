@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+/* Container */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+/* Card */
+.app-card {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Add spacing between sections */
+.app-card > * {
+  margin-bottom: 15px;
+}
+
+/* Title */
+.app-card h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Input form */
+.task-input-form {
+  display: flex;
+  gap: 10px;
+}
+
+/* Input */
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex: 1;
+  font-size: 14px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #333;
+}
+
+/* Buttons */
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #222;
+  color: white;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #000;
+}
+
+/* Task list */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Task item */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  gap: 12px;
+}
+
+/* Task text */
+li span {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Completed task */
+li span.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Task buttons */
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Footer */
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Counter */
+.task-counter {
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* Clear button */
+.clear-completed-btn {
+  background: #b91c1c;
+}
+
+.clear-completed-btn:hover {
+  background: #991b1b;
+}
+
+/* Filter buttons */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Active filter */
+.active-filter {
+  background: #555;
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  color: #777;
+}
